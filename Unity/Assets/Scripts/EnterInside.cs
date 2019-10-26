@@ -11,7 +11,7 @@ public class EnterInside : MonoBehaviour
         if (controller != null)
         {
             controller.Teleport(-56.5f,-2.00f);
-            Debug.Log("coucou");
+            Debug.Log("Enter Inside Building");
         }
     }
 }

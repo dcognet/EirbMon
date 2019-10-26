@@ -11,7 +11,7 @@ public class LeavingInside : MonoBehaviour
         if (controller != null)
         {
             controller.Teleport(-2.39f,1.50f);
-            Debug.Log("coucou");
+            Debug.Log("Leaving the building");
         }
     }
 }
