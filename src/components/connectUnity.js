@@ -17,4 +17,6 @@ class ConnectUnity extends React.Component {
         <div>  test
         </div>)
     }
-  }export default withStyles(styles)(ConnectUnity);
+  }
+  
+export default withStyles(styles)(ConnectUnity);

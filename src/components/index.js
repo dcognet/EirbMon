@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { withRouter, Route } from "react-router-dom";
+import { withRouter, Route, Switch } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
 
 // Visual Items
@@ -8,6 +8,8 @@ import { AppBar, Typography, IconButton, Drawer, Toolbar, ListItemText, ListItem
 import { AccountCircle, Menu } from '@material-ui/icons';
 
 import ConnectUnity from './connectUnity';
+
+
 
 //////////////////////////////////////////////////// Class //////////////////////////////////////////////////
 const styles = theme => ({
@@ -40,33 +42,25 @@ class AppComponent extends React.Component {
 
   navigateTo(path, currentPage) {
     this.props.history.push(path);
-    this.setState({currentPage: currentPage});
+    this.setState({ currentPage: currentPage });
   }
 
   render() {
     const classes = this.props.classes;
     return (
       <div className="App">
-
-
         <Drawer open={this.state.is_open} onClose={() => this.setState({ is_open: false })}>
           <div tabIndex={0} role="button" onClick={() => this.setState({ is_open: false })} >
             <List component="nav" >
-
               <ListItem button onClick={() => { this.navigateTo('/connectUnity', "Jeux") }}>
                 <ListItemIcon>
                   <AccountCircle />
                 </ListItemIcon>
-                  
                 <ListItemText primary={'Jeux'} secondary={"Test Connexion Unity"} />
-
               </ListItem>
             </List>
-
           </div>
         </Drawer>
-
-
         <AppBar position="fixed" className={classes.appbar}>
           <Toolbar className={classes.root} variant="dense">
             <IconButton className={classes.menuButton} color="inherit" aria-label="Menu" onClick={() => this.setState({ is_open: true })}>
@@ -75,16 +69,13 @@ class AppComponent extends React.Component {
             {this.state.currentPage}
             <Typography variant="h6" color="inherit" className={classes.apptitle}>
               Eirbmon
-          </Typography>
+            </Typography>
           </Toolbar>
         </AppBar>
 
-        <Route path="/" exact={true} component={ConnectUnity} />
-        <Route path="/connectUnity" exact={true} component={ConnectUnity} />
-
       </div>)
   }
-} 
+}
 
 function mapStateToProps(state) {
   return {};
