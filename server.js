@@ -16,22 +16,12 @@ app.use(bodyParser.json());
 
 app.use('/', express.static('src'));
 
-// renvoi tout les comptes
-app.get('/getAccounts', (req, res) => {
-  console.log("**** GET /getAccounts ****");
-  truffle_connect.start(function (answer) {
-    res.send(answer);
-  })
-});
 
-// afficher mes eirbmon
-app.get('/getMyEirbmon', (req, res) => {
-  console.log("**** GET /getMyEirbmon ****");
-  truffle_connect.getMyEirbmon(function (answer) {
-    res.send(answer);
-  })
-});
 
+// renvoie Eirbmon.json
+app.get('/Eirbmon.json', (req, res) => {
+ res.send(eirbmon_artifact)
+});
 
 app.listen(port, () => {
 
